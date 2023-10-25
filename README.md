@@ -1,6 +1,13 @@
 # AlitaUI
 React ui for alita
 
+## stack
+#### In this project we use several libraries to build ui:
+- [MUI (Material UI)](https://mui.com/material-ui/getting-started/) - styled components and design system
+- [Redux Toolkit (RTK)](https://redux-toolkit.js.org/rtk-query/overview) - api communication and state management
+- [React router](https://reactrouter.com/en/main/router-components/browser-router) - page navigation
+
+
 ## dev
 #### To run dev environment follow these steps:
 - `npm install`
