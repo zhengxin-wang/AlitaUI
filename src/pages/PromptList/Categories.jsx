@@ -1,9 +1,9 @@
-import React, {useState} from 'react';
-import {Chip} from "@mui/material";
-import {styled} from "@mui/material/styles";
-import {useDispatch, useSelector} from "react-redux";
-import {useTagListQuery} from '@/api/prompts';
+import { useTagListQuery } from '@/api/prompts';
 import { actions as promptSliceActions } from '@/reducers/prompts';
+import { Chip } from "@mui/material";
+import { styled } from "@mui/material/styles";
+import { useState } from 'react';
+import { useDispatch, useSelector } from "react-redux";
 
 const Label = styled('div')(({theme}) => ({
   fontSize: '14px',
@@ -28,7 +28,7 @@ const Categories = () => {
   }
   const [selectedTag, setSelectedTag] = useState('');
   const {tagList} = useSelector(state => state.prompts);
-  const {isSuccess, isError, ...rest} = useTagListQuery(SOURCE_PROJECT_ID);
+  const {isSuccess, isError} = useTagListQuery(SOURCE_PROJECT_ID);
   return (
     <div style={{ maxHeight: '392px '}}>
       <div>

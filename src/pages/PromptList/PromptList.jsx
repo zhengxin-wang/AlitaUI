@@ -1,7 +1,7 @@
-import {Container, Grid } from "@mui/material";
-import {useSelector} from "react-redux";
-import {usePromptListQuery} from "../../api/prompts.js";
 import Categories from "@/pages/PromptList/Categories.jsx";
+import { Grid } from "@mui/material";
+import { useSelector } from "react-redux";
+import { usePromptListQuery } from "../../api/prompts.js";
 
 const SOURCE_PROJECT_ID = 9
 const PromptList = () => {
