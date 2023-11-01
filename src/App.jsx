@@ -10,7 +10,7 @@ import ReactGA from "react-ga4";
 import Page404 from "./pages/Page404.jsx";
 import UserProfile from "./pages/UserProfile.jsx";
 import {Box} from "@mui/material";
-import PromptList from "./pages/PromptList.jsx";
+import PromptList from "./pages/PromptList/PromptList.jsx";
 
 
 const Demo = lazy(() => import("./pages/Demo/Demo.jsx"));
