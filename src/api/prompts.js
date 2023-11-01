@@ -1,4 +1,4 @@
-import {alitaApi} from "./alitaApi.js";
+import { alitaApi } from "./alitaApi.js";
 
 
 const apiSlicePath = '/prompts'
@@ -23,7 +23,7 @@ export const promptApi = alitaApi.enhanceEndpoints({
         }),
         tagList: build.query({
             query: (projectId) => ({
-                url: apiSlicePath + '/tags/' + projectId,
+                url: apiSlicePath + '/tags/default/' + projectId,
             }),
             providesTags: (result, error) => {
                 if (error) {

@@ -1,11 +1,12 @@
-import {useEffect, useState} from "react";
-import {useLocation, useNavigate} from "react-router-dom";
-import {useDispatch, useSelector} from "react-redux";
+import MailIcon from "@mui/icons-material/Mail.js";
+import MenuIcon from "@mui/icons-material/Menu.js";
+import NotificationsIcon from "@mui/icons-material/Notifications.js";
+import PersonIcon from '@mui/icons-material/Person';
+import SearchIcon from "@mui/icons-material/Search.js";
 import {
     AppBar,
     Box,
     Breadcrumbs,
-    Button,
     Divider,
     ListItem,
     Menu,
@@ -13,15 +14,13 @@ import {
     Toolbar,
     Typography
 } from "@mui/material";
-import PersonIcon from '@mui/icons-material/Person';
-import {logout} from "../reducers/user";
-import IconButton from "@mui/material/IconButton";
 import Badge from "@mui/material/Badge";
-import MailIcon from "@mui/icons-material/Mail.js";
-import NotificationsIcon from "@mui/icons-material/Notifications.js";
-import MenuIcon from "@mui/icons-material/Menu.js";
-import {SearchIconWrapper, SearchPanel, StyledInputBase} from "./SearchPanel.jsx";
-import SearchIcon from "@mui/icons-material/Search.js";
+import IconButton from "@mui/material/IconButton";
+import { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { useLocation, useNavigate } from "react-router-dom";
+import { logout } from "../reducers/user";
+import { SearchIconWrapper, SearchPanel, StyledInputBase } from "./SearchPanel.jsx";
 
 
 const NavActions = () => {
@@ -92,7 +91,7 @@ const NavActions = () => {
     )
 };
 
-const TitleBread = props => {
+const TitleBread = () => {
     const {pathname} = useLocation()
     const [path, setPath] = useState([])
 
