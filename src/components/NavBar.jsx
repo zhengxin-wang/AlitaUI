@@ -138,7 +138,7 @@ const NavBar = () => {
                         sx={{ mr: 2 }}
                         onClick={onClickIcon}
                     >
-                        <AlitaIcon />
+                        <AlitaIcon sx={{fontSize: 36}} />
                     </IconButton>
                     <SideBar
                         open={openSideMenu}
