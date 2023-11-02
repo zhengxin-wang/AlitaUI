@@ -1,4 +1,4 @@
-import {alitaApi} from "./alitaApi.js";
+import { alitaApi } from "./alitaApi.js";
 
 
 const apiSlicePath = '/auth'
@@ -18,6 +18,7 @@ export const authApi = alitaApi.enhanceEndpoints({
                     return []
                 }
                 const {id} = result
+                // eslint-disable-next-line no-console
                 console.log('providesTags result', [
                     {type: TAG_TYPE_USER, id},
                     {type: TAG_TYPE_USER, id: 'DETAILS'}
