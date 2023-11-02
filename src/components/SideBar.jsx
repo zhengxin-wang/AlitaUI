@@ -117,8 +117,11 @@ const SideBarBody = ({ onKeyDown, onClose }) => {
       if (!pagePath.includes(paths[1]) ) {
         navigate(pagePath);
       }
+      if (onClose) {
+        onClose();
+      }
     },
-    [navigate, pathname],
+    [navigate, onClose, pathname],
   )
 
 
@@ -162,7 +165,7 @@ const SideBarBody = ({ onKeyDown, onClose }) => {
           sx={{ mr: 0, paddingTop: 0.8, paddingBottom: 0.8, paddingLeft: 0.8 }}
           disabled
         >
-          <AlitaIcon />
+          <AlitaIcon sx={{fontSize: 36}}/>
         </IconButton>
         <CloseIcon onClick={onClose} />
       </StyledMenuHeader>
