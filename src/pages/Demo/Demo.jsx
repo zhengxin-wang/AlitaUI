@@ -5,7 +5,7 @@ import './Demo.css'
 const Demo = () => {
     const [count, setCount] = useState(0)
     const onClick = useCallback(
-        () => setCount((count) => count + 1),
+        () => setCount((prevCount) => prevCount + 1),
         [],
     )
 
