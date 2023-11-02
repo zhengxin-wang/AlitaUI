@@ -41,6 +41,12 @@ const theme = createTheme({
                     padding: '8px 20px',
                     borderRadius: '10px',
                 },
+                outlined: {
+                    border: '1px solid rgba(255, 255, 255, 0.40)',
+                    background: '#0E131D',
+                    backdropFilter: 'blur(6px)',
+                    color: '#FFF',
+                },
                 label: {
                     fontSize: '12px',
                     fontStyle: 'normal',

@@ -13,19 +13,20 @@ const Label = styled(StyledLabel)(({theme}) => ({
 const SOURCE_PROJECT_ID = 9;
 const Categories = () => {
   const dispatch = useDispatch();
-  const [selectedTag, setSelectedTag] = useState('');
+  const [selectedTags, setSelectedTags] = useState([]);
   const {tagList} = useSelector(state => state.prompts);
   const {isSuccess, isError} = useTagListQuery(SOURCE_PROJECT_ID);
   const handleClick = useCallback(async (e) => {
     const newTag = e.target.innerText;
-    if (selectedTag === newTag) {
-      setSelectedTag('');
-      await dispatch(promptSliceActions.filterByTag())
+    if (selectedTags.includes(newTag)) {
+      setSelectedTags(selectedTags.filter(tag => tag !== newTag));
+      await dispatch(promptSliceActions.filterByTag(selectedTags))
       return;
     }
-    setSelectedTag(newTag);
-    await dispatch(promptSliceActions.filterByTag(newTag))
-  }, [dispatch, selectedTag]);
+    const tags = [...selectedTags, newTag];
+    setSelectedTags(tags);
+    await dispatch(promptSliceActions.filterByTag(tags))
+  }, [dispatch, selectedTags]);
   return (
     <div style={{ maxHeight: '392px', marginBottom: '16px' }}>
       <div>
@@ -36,9 +37,10 @@ const Categories = () => {
         <div>
           {
           tagList.map(({id, tag}) => (
-            <Chip key={id} color={selectedTag === tag ? 'primary': 'default'}
+            <Chip key={id} 
               label={tag} 
               onClick={handleClick}
+              variant={selectedTags.includes(tag) ? 'outlined': 'filled'}
             /> 
           ))
           }

@@ -1,5 +1,5 @@
-import {createSlice} from '@reduxjs/toolkit'
-import {alitaApi} from "../api/alitaApi.js";
+import { createSlice } from '@reduxjs/toolkit';
+import { alitaApi } from "../api/alitaApi.js";
 
 
 const promptSlice = createSlice({
@@ -11,12 +11,16 @@ const promptSlice = createSlice({
     },
     reducers: {
         filterByTag: (state, action) => {
-            const payload = action.payload ?? '';
-            if (payload === '') {
+            const selectedTags = action.payload ?? [];
+            if (selectedTags.length < 1) {
                 state.filteredList = state.list;
                 return
             }
-            state.filteredList = state.list.filter(item => item.tags.some(({tag}) => tag === payload));
+            state.filteredList = state.list.filter(item => 
+                item.tags.some(({tag}) => 
+                    selectedTags.includes(tag)
+                )
+            );
         }
     },
     extraReducers: (builder) => {
