@@ -1,6 +1,9 @@
-import {createTheme} from "@mui/material";
+import { createTheme } from "@mui/material";
 
 const theme = createTheme({
+    typography: {
+        fontFamily: '"Montserrat", Roboto, Arial, sans-serif',
+    },
     palette: {
         mode: 'dark',
         primary: {
@@ -10,26 +13,30 @@ const theme = createTheme({
           main: '#262b34',
         },
         background: {
-          default: '#0f131d',
+          default: '#0E131D',
         },
         text: {
-            primary: '#ffffff',
-          },
+            primary: '#A9B7C1',
+        },
       },
       components: {
-        MuiBox: {
+        MuiAvatar: {
             styleOverrides: {
                 root: {
-                    background: {
-                        default: '#0f131d',
-                    },
-                    color: '#ffffff',
+                    background: '#1a1f28',
+                    color: '#A9B7C1',
+                    display: 'flex',
+                    padding: '8px',
+                    alignItems: 'center',
+                    gap: '8px',
+                    fontSize: '16px'
                 }
             }
         },
         MuiChip: {
             styleOverrides: {
                 root: {
+                    background: '#1a1f28',
                     margin: '0 8px 8px 0',
                     padding: '8px 20px',
                     borderRadius: '10px',
@@ -43,14 +50,16 @@ const theme = createTheme({
                 }
             },
         },
-        MuiGrid: {
+        MuiTypography: {
             styleOverrides: {
                 root: {
-                    background: '#0f131d',
-                    color: '#ffffff',
-                },
-            },
-        },
+                    fontFamily: 'Montserrat',
+                    fontStyle: 'normal',
+                    fontWeight: 400,
+                    lineHeight: '16px'
+                }
+            }
+        }
       },
     // palette: {
     //     primary: {

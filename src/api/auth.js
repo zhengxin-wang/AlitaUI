@@ -7,7 +7,6 @@ const TAG_TYPE_USER = 'User'
 export const authApi = alitaApi.enhanceEndpoints({
     addTagTypes: [TAG_TYPE_USER]
 }).injectEndpoints({
-// export const authApi = alitaApi.injectEndpoints({
     endpoints: build => ({
         userDetails: build.query({
             query: () => ({

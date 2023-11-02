@@ -1,15 +1,12 @@
 import { useTagListQuery } from '@/api/prompts';
+import StyledLabel from "@/components/StyledLabel";
 import { actions as promptSliceActions } from '@/reducers/prompts';
 import { Chip } from '@mui/material';
 import { styled } from '@mui/material/styles';
 import { useCallback, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
-const Label = styled('div')(({theme}) => ({
-  fontSize: '14px',
-  fontStyle: 'normal',
-  fontWeight: '500',
-  lineHeight: '160%', 
+const Label = styled(StyledLabel)(({theme}) => ({
   marginBottom: theme.spacing(3)
 }));
 

@@ -10,7 +10,7 @@ const PromptList = () => {
     const {isSuccess, isError, ...rest} = usePromptListQuery(SOURCE_PROJECT_ID);
     return (
         <Grid container style={{flexGrow: 1}}>
-            <Grid item xs={9}>
+            <Grid item xs={9} style={{overflow: 'auto'}}>
                 <pre>
                 {JSON.stringify(filteredList, null, 2)}
                 </pre>
