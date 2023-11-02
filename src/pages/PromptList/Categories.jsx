@@ -30,7 +30,7 @@ const Categories = () => {
     await dispatch(promptSliceActions.filterByTag(newTag))
   }, [dispatch, selectedTag]);
   return (
-    <div style={{ maxHeight: '392px '}}>
+    <div style={{ maxHeight: '392px', marginBottom: '16px' }}>
       <div>
         <Label>Categories</Label>
       </div>

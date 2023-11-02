@@ -1,7 +1,8 @@
-import Categories from "@/pages/PromptList/Categories.jsx";
 import { Grid } from "@mui/material";
 import { useSelector } from "react-redux";
 import { usePromptListQuery } from "../../api/prompts.js";
+import Categories from "./Categories.jsx";
+import TrendingAuthors from "./TrendingAuthors.jsx";
 
 const SOURCE_PROJECT_ID = 9
 const PromptList = () => {
@@ -25,6 +26,7 @@ const PromptList = () => {
                 height: '100vh',
             }}>
                 <Categories/>
+                <TrendingAuthors/>
             </Grid>
         </Grid>
     )
