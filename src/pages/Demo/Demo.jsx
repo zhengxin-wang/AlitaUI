@@ -1,12 +1,16 @@
-import { useState } from 'react'
+import { useCallback, useState } from 'react'
 import reactLogo from '../../assets/react.svg'
 import './Demo.css'
 
 const Demo = () => {
     const [count, setCount] = useState(0)
+    const onClick = useCallback(
+        () => setCount((count) => count + 1),
+        [],
+    )
 
     return (
-        <div id='demoContainer'>s
+        <div id='demoContainer'>
             Goodbye
             <div>
                 <a href="https://vitejs.dev" target="_blank" rel="noopener noreferrer">
@@ -18,7 +22,7 @@ const Demo = () => {
             </div>
             <h1>Vite + React</h1>
             <div className="card">
-                <button onClick={() => setCount((count) => count + 1)}>
+                <button onClick={onClick}>
                     count is {count}
                 </button>
                 <p>

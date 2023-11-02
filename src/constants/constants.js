@@ -10,4 +10,5 @@ export const {
     PROD
 } = import.meta.env
 
+// eslint-disable-next-line no-console
 DEV && console.debug('import.meta.env', import.meta.env)
