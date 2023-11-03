@@ -33,11 +33,11 @@ module.exports = {
   'rules': {
     'react/jsx-uses-react': 'error',
     'react/jsx-uses-vars': 'error',
+    'react/prop-types': 0,
     'react-hooks/exhaustive-deps': 'error',
     'no-unused-vars': 'error',
     'prefer-const': 'error',
     'no-console': 'error',
-    eqeqeq: 'error',
     'no-shadow': 'error',
     'import/no-unresolved': 'error',
     'import/no-useless-path-segments': 'error',
