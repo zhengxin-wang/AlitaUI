@@ -7,7 +7,6 @@ const TAG_TYPE_AUTHOR = 'Author'
 export const mockApi = alitaApi.enhanceEndpoints({
     addTagTypes: [TAG_TYPE_AUTHOR]
 }).injectEndpoints({
-// export const promptApi = alitaApi.injectEndpoints({
     endpoints: build => ({
         trendingAuthorsList: build.query({
             query: (projectId) => ({
