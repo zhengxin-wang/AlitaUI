@@ -2,7 +2,6 @@ import { styled } from '@mui/material';
 import Box from '@mui/material/Box';
 import Tab from '@mui/material/Tab';
 import Tabs from '@mui/material/Tabs';
-import Typography from '@mui/material/Typography';
 import PropTypes from 'prop-types';
 import * as React from 'react';
 
@@ -18,8 +17,8 @@ function CustomTabPanel(props) {
       {...other}
     >
       {value === index && (
-        <Box sx={{ p: 3 }}>
-          <Typography>{children}</Typography>
+        <Box>
+          {children}
         </Box>
       )}
     </div>

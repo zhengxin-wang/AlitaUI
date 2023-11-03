@@ -1,4 +1,5 @@
 import { Box } from "@mui/material";
+import { styled } from '@mui/material/styles';
 import { Suspense, lazy, useEffect } from "react";
 import ReactGA from "react-ga4";
 import { Navigate, Route, Routes, useLocation } from "react-router-dom";
