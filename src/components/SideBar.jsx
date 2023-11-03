@@ -77,6 +77,11 @@ const StyledActivityItemContainer = styled('div')(({ theme }) => ({
   lineClamp: 1,
 }));
 
+const StyledActivityTitle = styled(Typography)(() => `
+  color: white;
+`
+);
+
 const StyledActivityItem = styled(Typography)(({theme}) => `
   overflow: hidden;
   white-space: nowrap;
@@ -187,9 +192,9 @@ const SideBarBody = ({ onKeyDown, onClose }) => {
 
       <StyledActivityContainer>
         <StyledActivityTitleContainer>
-          <Typography variant="subtitle1" gutterBottom>
+          <StyledActivityTitle variant="subtitle1" gutterBottom>
             Recent activity
-          </Typography>
+          </StyledActivityTitle>
         </StyledActivityTitleContainer>
         <StyledActivityItemContainer>
           {
