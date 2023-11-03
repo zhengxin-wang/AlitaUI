@@ -1,7 +1,8 @@
 import { useTagListQuery } from '@/api/prompts';
+import { renderStatusComponent } from '@/common/utils';
 import StyledLabel from "@/components/StyledLabel";
 import { actions as promptSliceActions } from '@/reducers/prompts';
-import { Chip } from '@mui/material';
+import { Chip, Typography } from '@mui/material';
 import { styled } from '@mui/material/styles';
 import { useCallback, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
@@ -15,7 +16,7 @@ const Categories = () => {
   const dispatch = useDispatch();
   const [selectedTags, setSelectedTags] = useState([]);
   const {tagList} = useSelector(state => state.prompts);
-  const {isSuccess, isError} = useTagListQuery(SOURCE_PROJECT_ID);
+  const {isSuccess, isError, isLoading} = useTagListQuery(SOURCE_PROJECT_ID);
   const handleClick = useCallback(async (e) => {
     const newTag = e.target.innerText;
     if (selectedTags.includes(newTag)) {
@@ -27,31 +28,25 @@ const Categories = () => {
     setSelectedTags(tags);
     await dispatch(promptSliceActions.filterByTag(tags))
   }, [dispatch, selectedTags]);
+
+  const successContent = (
+    tagList.length > 0 ?
+    tagList.map(({id, tag}) => (
+      <Chip key={id} 
+        label={tag} 
+        onClick={handleClick}
+        variant={selectedTags.includes(tag) ? 'outlined': 'filled'}
+      /> 
+    )) : 
+    <Typography variant={'body2'}>None.</Typography>
+  );
+  
   return (
     <div style={{ maxHeight: '392px', marginBottom: '16px' }}>
       <div>
         <Label>Categories</Label>
       </div>
-      {
-        isSuccess ? 
-        <div>
-          {
-          tagList.map(({id, tag}) => (
-            <Chip key={id} 
-              label={tag} 
-              onClick={handleClick}
-              variant={selectedTags.includes(tag) ? 'outlined': 'filled'}
-            /> 
-          ))
-          }
-        </div> : null
-      }
-      {
-        isError ? 
-        <div>
-          Load tags failed.
-        </div> : null
-      }
+      {renderStatusComponent({isLoading, isSuccess, isError, successContent})}
     </div>
   );
 }
