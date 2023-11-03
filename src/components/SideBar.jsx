@@ -77,10 +77,10 @@ const StyledActivityItemContainer = styled('div')(({ theme }) => ({
   lineClamp: 1,
 }));
 
-const StyledActivityItem = styled(Typography)(() => `
+const StyledActivityItem = styled(Typography)(({theme}) => `
   overflow: hidden;
   white-space: nowrap;
-  color: var(--Default-gray, #A9B7C1);
+  color: ${theme.palette.text.primary};
   height: 24px;
   text-overflow: ellipsis;`
 );
