@@ -127,7 +127,7 @@ const NavBar = () => {
     }, []);
 
     return (
-        <AppBar position="static" sx={{ mb: 1 }}>
+        <AppBar position="fixed" sx={{ mb: 1 }}>
             <Toolbar variant={'regular'}>
                 <Box sx={{ flex: 1, display: 'flex', alignItems: 'center' }}>
                     <IconButton

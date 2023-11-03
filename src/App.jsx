@@ -1,9 +1,5 @@
-import "@fontsource/roboto/300.css";
-import "@fontsource/roboto/400.css";
-import "@fontsource/roboto/500.css";
-import "@fontsource/roboto/700.css";
 import { Box } from "@mui/material";
-import React, { Suspense, lazy, useEffect } from "react";
+import { Suspense, lazy, useEffect } from "react";
 import ReactGA from "react-ga4";
 import { Navigate, Route, Routes, useLocation } from "react-router-dom";
 import { gaInit } from "./GA";
@@ -14,21 +10,24 @@ import Page404 from "./pages/Page404.jsx";
 import PromptList from "./pages/PromptList/PromptList.jsx";
 import UserProfile from "./pages/UserProfile.jsx";
 
+import { styled } from '@mui/material/styles';
+
 const Demo = lazy(() => import("./pages/Demo/Demo.jsx"));
 
-gaInit();
+const NavBarPlaceholder = styled('div')(() => ({
+    height: `64px`
+}));
+
+
+gaInit()
 
 const App = () => {
-  const location = useLocation();
-  useEffect(() => {
-    ReactGA.isInitialized &&
-      ReactGA.send({
-        hitType: "pageview",
-        page: location.pathname + location.search,
-      });
-    // eslint-disable-next-line no-console
-    console.log("Google analytics init:", ReactGA.isInitialized);
-  }, [location]);
+    const location = useLocation()
+    useEffect(() => {
+        ReactGA.isInitialized && ReactGA.send({ hitType: 'pageview', page: location.pathname + location.search })
+        // eslint-disable-next-line no-console
+        console.log('Google analytics init:', ReactGA.isInitialized)
+    }, [location])
 
   return (
     <Routes>

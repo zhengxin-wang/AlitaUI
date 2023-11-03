@@ -8,7 +8,6 @@ const TAG_TYPE_TAG = 'Tag'
 export const promptApi = alitaApi.enhanceEndpoints({
     addTagTypes: [TAG_TYPE_PROMPT]
 }).injectEndpoints({
-// export const promptApi = alitaApi.injectEndpoints({
     endpoints: build => ({
         promptList: build.query({
             query: (projectId) => ({
