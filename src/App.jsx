@@ -10,14 +10,7 @@ import Page404 from "./pages/Page404.jsx";
 import PromptList from "./pages/PromptList/PromptList.jsx";
 import UserProfile from "./pages/UserProfile.jsx";
 
-import { styled } from '@mui/material/styles';
-
 const Demo = lazy(() => import("./pages/Demo/Demo.jsx"));
-
-const NavBarPlaceholder = styled('div')(() => ({
-    height: `64px`
-}));
-
 
 gaInit()
 

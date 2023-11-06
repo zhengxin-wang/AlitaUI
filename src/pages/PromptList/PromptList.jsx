@@ -3,7 +3,6 @@ import { useSelector } from "react-redux";
 import { usePromptListQuery } from "../../api/prompts.js";
 import PromptCard from "@/components/Card.jsx";
 import Categories from "./Categories.jsx";
-import TrendingAuthors from "./TrendingAuthors.jsx";
 
 const SOURCE_PROJECT_ID = 9;
 const PromptList = () => {
