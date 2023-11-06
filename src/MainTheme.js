@@ -56,49 +56,24 @@ const theme = createTheme({
                 }
             },
         },
-        MuiTypography: {
+        MuiTabs: {
             styleOverrides: {
                 root: {
-                    fontFamily: 'Montserrat',
-                    fontStyle: 'normal',
-                    fontWeight: 400,
-                    lineHeight: '16px'
-                }
+                    minHeight: '38px',
+                    fontSize: '14px',
+                    fontWeight: '500',
+                    '& button': {
+                        minHeight: '36px',
+                        textTransform: 'capitalize',
+                    },
+                    '& button>svg': {
+                        fontSize: '16px',
+                    }
+                },
+
             }
         }
-      },
-    // palette: {
-    //     primary: {
-    //         main: '#000',
-    //         contrastText: '#fff',
-    //     },
-    //     // divider: '#fff',
-    //     secondary: {
-    //         // main: '#ff9814',
-    //         main: '#BD9A07',
-    //         contrastText: '#fff',
-    //     },
-    // },
-    // components: {
-    //     // Name of the component
-    //     MuiButton: {
-    //         styleOverrides: {
-    //             // Name of the slot
-    //             root: {
-    //                 // Some CSS
-    //                 // fontSize: '3rem',
-    //                 textTransform: "capitalize"
-    //             },
-    //         },
-    //     },
-    //     MuiTooltip: {
-    //         styleOverrides: {
-    //             tooltip: {
-    //                 backgroundColor: '#000000'
-    //             }
-    //         }
-    //     }
-    // },
-})
+    }
+});
 
 export default theme

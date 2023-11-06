@@ -1,15 +1,15 @@
 import PersonIcon from '@mui/icons-material/Person';
 import SearchIcon from '@mui/icons-material/Search.js';
 import {
-    AppBar,
-    Box,
-    Breadcrumbs,
-    Divider,
-    ListItem,
-    Menu,
-    MenuItem,
-    Toolbar,
-    Typography
+  AppBar,
+  Box,
+  Breadcrumbs,
+  Divider,
+  ListItem,
+  Menu,
+  MenuItem,
+  Toolbar,
+  Typography
 } from '@mui/material';
 import IconButton from '@mui/material/IconButton';
 import { styled } from '@mui/material/styles';
@@ -114,7 +114,10 @@ const TitleBread = () => {
 
     return (
         <Breadcrumbs aria-label="breadcrumb" color={'text.primary'}>
-            <Typography textTransform={'capitalize'}>{PathSessionMap[pathname]}</Typography>
+            <Typography 
+              textTransform={'capitalize'} 
+              sx={{ fontSize: '0.875rem', fontWeight: '500'}}
+            >{PathSessionMap[pathname]}</Typography>
         </Breadcrumbs>
     )
 }
