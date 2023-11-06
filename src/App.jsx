@@ -2,15 +2,13 @@ import { Box } from "@mui/material";
 import { Suspense, lazy, useEffect } from "react";
 import ReactGA from "react-ga4";
 import { Navigate, Route, Routes, useLocation } from "react-router-dom";
-import { gaInit } from './GA';
+import { gaInit } from "./GA";
 import NavBar from "./components/NavBar.jsx";
 import Discover from "./pages/Discover/Discover.jsx";
 import MyCollections from './pages/MyCollcetions/MyCollections';
 import MyPrompts from './pages/MyPrompts/MyPrompts';
 import Page404 from "./pages/Page404.jsx";
 import UserProfile from "./pages/UserProfile.jsx";
-
-import { styled } from '@mui/material/styles';
 
 const Demo = lazy(() => import("./pages/Demo/Demo.jsx"));
 

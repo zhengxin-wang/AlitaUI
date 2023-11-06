@@ -1,5 +1,3 @@
-import MailIcon from '@mui/icons-material/Mail.js';
-import NotificationsIcon from '@mui/icons-material/Notifications.js';
 import PersonIcon from '@mui/icons-material/Person';
 import SearchIcon from '@mui/icons-material/Search.js';
 import {
@@ -13,15 +11,25 @@ import {
   Toolbar,
   Typography
 } from '@mui/material';
-import Badge from '@mui/material/Badge';
 import IconButton from '@mui/material/IconButton';
+import { styled } from '@mui/material/styles';
 import { useCallback, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { logout } from '../reducers/user';
+import HeaderSplitButton from './HeaderSplitButton';
 import AlitaIcon from './Icons/AlitaIcon';
+import NotificationButton from './NotificationButton';
 import { SearchIconWrapper, SearchPanel, StyledInputBase } from './SearchPanel.jsx';
 import SideBar from './SideBar';
+
+const StyledPersonIcon = styled(PersonIcon)(({ theme }) => `
+    fill: ${theme.palette.text.primary}
+`)
+
+const StyledSearchIcon = styled(SearchIcon)(({ theme }) => `
+    fill: ${theme.palette.text.primary}
+`)
 
 const NavActions = () => {
     const [anchorEl, setAnchorEl] = useState(null)
@@ -59,8 +67,9 @@ const NavActions = () => {
                 aria-haspopup="true"
                 onClick={handleClick}
                 color="inherit"
+                sx={{ marginRight: 0 }}
             >
-                <PersonIcon />
+                <StyledPersonIcon />
             </IconButton>
             <Menu
                 id="menu-appbar"
@@ -96,7 +105,8 @@ const PathSessionMap = {
     '/discover/collections': 'Discover',
     '/discover': 'Discover',
     '/my-prompts': 'My prompts',
-    '/my-collections': 'My collections'
+    '/my-collections': 'My collections',
+    '/profile': 'Profile',
 }
 
 const TitleBread = () => {
@@ -110,6 +120,29 @@ const TitleBread = () => {
             >{PathSessionMap[pathname]}</Typography>
         </Breadcrumbs>
     )
+}
+
+const NameText = styled(Typography)(({ theme }) => `
+    max-width: 130px;
+    margin-left: 16px;
+    margin-right: 16px;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 160%; 
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    color: ${theme.palette.text.primary}
+`)
+
+const UserInfo = () => {
+    const { name } = useSelector(state => state.user);
+    return name ? (
+        <NameText>
+            {name}
+        </NameText>)
+        : null;
 }
 
 const NavBar = () => {
@@ -141,7 +174,7 @@ const NavBar = () => {
                         sx={{ mr: 2 }}
                         onClick={onClickIcon}
                     >
-                        <AlitaIcon sx={{fontSize: 36}} />
+                        <AlitaIcon sx={{ fontSize: 36 }} />
                     </IconButton>
                     <SideBar
                         open={openSideMenu}
@@ -150,10 +183,10 @@ const NavBar = () => {
                     />
                     <TitleBread />
                 </Box>
-                <Box  sx={{ flex: 1 }}>
+                <Box sx={{ flex: 1.5 }}>
                     <SearchPanel>
                         <SearchIconWrapper>
-                            <SearchIcon />
+                            <StyledSearchIcon />
                         </SearchIconWrapper>
                         <StyledInputBase
                             placeholder="Let’s find something amaizing!"
@@ -161,23 +194,12 @@ const NavBar = () => {
                         />
                     </SearchPanel>
                 </Box>
-                <Box sx={{flex: 1, display: 'flex', justifyContent: 'flex-end'}}>
-                    <IconButton size="large" aria-label="show 4 new mails" color="inherit">
-                        <Badge badgeContent={4} color="error">
-                            <MailIcon />
-                        </Badge>
-                    </IconButton>
-                    <IconButton
-                        size="large"
-                        aria-label="show 17 new notifications"
-                        color="inherit"
-                    >
-                        <Badge badgeContent={17} color="error">
-                            <NotificationsIcon />
-                        </Badge>
-                    </IconButton>
+                <Box sx={{ flex: 1.5, display: 'flex', justifyContent: 'flex-end', alignItems: 'center' }}>
+                    <HeaderSplitButton />
+                    <NotificationButton />
+                    <UserInfo />
+                    <NavActions />
                 </Box>
-                <NavActions />
             </Toolbar>
         </AppBar>
     )
